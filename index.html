@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daffi Nafeeza | Web Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Daffi Nafeeza, a passionate web developer specializing in modern web technologies.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/046af6897e.js" crossorigin="anonymous"></script>
+  
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <style>
+    /* Reset and Base Styles */
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #7e22ce;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --success: #22c55e;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    section {
+      padding: 80px 0;
+    }
+    
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    
+    h1 {
+      font-size: 3.5rem;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    h2.section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--primary);
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    }
+    
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(37, 99, 235, 0.3);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+    }
+    
+    .logo a {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-links .contact-button {
+      background: var(--primary);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 6px;
+    }
+    
+    .nav-links .contact-button:hover {
+      background: var(--primary-dark);
+      color: white;
+    }
+    
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Dropdown Menu */
+    .dropdown {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--light);
+      z-index: 1001;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(-100%);
+      transition: transform 0.4s ease;
+    }
+    
+    .dropdown.active {
+      transform: translateY(0);
+    }
+    
+    .hamburger-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+    }
+    
+    .hamburger-links a {
+      font-size: 1.5rem;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .hamburger-links a:hover {
+      color: var(--primary);
+    }
+    
+    .cancel {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .main-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
+    
+    .image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .image img {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .content {
+      flex: 1;
+      padding-left: 2rem;
+    }
+    
+    .content h1 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .content h1 span {
+      color: var(--primary);
+    }
+    
+    .typewriter {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      min-height: 2.5rem;
+    }
+    
+    .typewriter span {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .typewriter span::before {
+        content: "Software Developer";
+        animation: words 10s infinite;
+    }
+
+    .typewriter span::after {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 2px;
+      animation: cursor 0.5s linear infinite;
+      border-width: 3px solid var(--first-color);
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      max-width: 90%;
+      margin-bottom: 2rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: white;
+      border-radius: 50%;
+      color: var(--primary);
+      font-size: 1.2rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .social-links a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    /* About Section */
+    #about {
+      background: white;
+    }
+    
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+    
+    .about-img {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Skills Section */
+    .skills-container {
+      text-align: center;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .skill-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: var(--transition);
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+    
+    .skill-card i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .skill-card h3 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .skill-bar {
+      width: 100%;
+      height: 12px;
+      background: #e5e7eb;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 10px;
+      width: 0;
+      transition: width 1.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 10px;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    
+    /* Testimonials Section */
+    #testimonials {
+      background: white;
+    }
+    
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .testimonial-card {
+      background: var(--light);
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+    
+    .testimonial-card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .testimonial-card h3 {
+      margin-bottom: 1rem;
+    }
+    
+    .testimonial-card p.quote {
+      color: var(--gray);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    
+    .testimonial-card p.client {
+      color: var(--dark);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .testimonial-card p.position {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+    
+    .rating {
+      color: #fbbf24;
+      margin-bottom: 1rem;
+    }
+    
+    /* Contact Section */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      padding: 1rem 1.5rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+    
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+    
+    .contact-form button {
+      align-self: flex-start;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+    }
+    
+    footer p {
+      margin-bottom: 1rem;
+    }
+    
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    footer a:hover {
+      color: white;
+    }
+    
+    @keyframes words {
+      0% {content: "Web Developer!";}
+      20% {content: "Designer!";}
+      40% {content: "Frontend!";}
+      60% {content: "Creator!";}
+      80% {content: "UI/UX Designer!";}
+      100% {content: "Programmer!";}
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      
+      h2 {
+        font-size: 2.2rem;
+      }
+      
+      .main-container {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+      }
+      
+      .content {
+        padding-left: 0;
+        margin-top: 3rem;
+      }
+      
+      .content p {
+        max-width: 100%;
+      }
+      
+      .social-links {
+        justify-content: center;
+      }
+      
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+      
+      .image img {
+        width: 280px;
+        height: 280px;
+      }
+      
+      .about-img {
+        width: 280px;
+        height: 280px;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 2.3rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      section {
+        padding: 60px 0;
+      }
+      
+      .image img {
+        width: 220px;
+        height: 220px;
+      }
+      
+      .about-img {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+      }
+      
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container nav-container">
+      <div class="logo" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="400">
+        <a class="navbar-brand" href="#">Portofolio</a>
+      </div>
+      <div class="nav-links">
+        <a href="#home" data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine">Home</a>
+        <a href="#about" data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine">About</a>
+        <a href="#skills" data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine">Skills</a>
+        <a href="#testimonials" data-aos="fade-right" data-aos-offset="400" data-aos-easing="ease-in-sine">Testimonials</a>
+        <a href="#contact" class="contact-button">Contact</a>
+      </div>
+      <div class="hamburger" onclick="hamburger()"><i class="fa-solid fa-bars"></i></div>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown">
+      <div class="hamburger-links">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#skills" onclick="closeMenu()">Skills</a>
+        <a href="#testimonials" onclick="closeMenu()">Testimonials</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+        <div class="cancel" onclick="closeMenu()"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="main-container" id="home">
+    <div class="image">
+      <img src="assets/src/img/2.jpg" alt="Daffi Nafeeza" class="rounded-circle floating">
+    </div>
+    <div class="content">
+      <h1>Hey, I'm <span>Daffi Nafeeza</span></h1>
+      <div class="typewriter">I'm a <span class="typed-text"></span></div>
+      <p>
+        Saya adalah seorang web developer yang passionate dalam membuat website yang menarik dan fungsional. 
+        Saya memiliki pengalaman dalam berbagai teknologi web modern.
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/D4FF1" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/daffi-nafeeza-036601376" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://wa.me/6285657424907" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://instagram.com/daffi_nafeeza" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+      <div class="btn">
+        <a href="#contact" class="btn">Get In Touch</a>
+        <a href="#" class="btn btn-outline">Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div data-aos="fade-up" data-aos-duration="1000">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <img src="assets/src/img/1.png" alt="Daffi Nafeeza" class="about-img" data-aos="fade-right" data-aos-duration="1000">
+          <div class="about-text" data-aos="fade-left" data-aos-duration="1000">
+            <p>
+              Halo! Saya <strong>Daffi Nafeeza</strong>, seorang pengembang web yang berdedikasi dan bersemangat menciptakan solusi digital yang inovatif. 
+              Perjalanan saya di dunia teknologi dimulai sejak usia muda, dan saya terus mengasah keterampilan saya sejak saat itu.
+            </p>
+            <p>
+              Saya berspesialisasi dalam pengembangan front-end, tetapi juga memiliki pengalaman substansial dengan teknologi back-end.
+              Pendekatan saya menggabungkan keahlian teknis dengan pemecahan masalah yang kreatif untuk menghasilkan situs web yang menarik secara visual sekaligus sangat fungsional.
+            </p>
+            <p>
+              Di luar coding, Anda bisa menemukan saya menulis konten motivasi untuk developer muda, menjelajahi teknologi baru, atau berkontribusi pada proyek sumber terbuka. 
+              Saya percaya pada pembelajaran berkelanjutan dan mendorong batasan-batasan yang mungkin di web.
+            </p>
+            <p>
+              Tumpukan teknologi saya saat ini meliputi <strong>HTML5, CSS3, JavaScript, PHP, Laravel, Bootstrap</strong>, 
+               , dan berbagai alat serta kerangka kerja lain yang membantu saya mewujudkan ide.
+            </p>
+            <a href="#contact" class="btn">Let's Work Together</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div data-aos="fade-up" data-aos-duration="1000">
+      <div class="container skills-container">
+        <h2 class="section-title">My Skills</h2>
+        <p class="section-subtitle">Technologies I specialize in</p>
+        <div class="skills-grid">
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fa-brands fa-html5"></i>
+            <h3>HTML5</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress:95%">95%</div>
+            </div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fa-brands fa-css3-alt"></i>
+            <h3>CSS3</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress:90%">90%</div>
+            </div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-brands fa-js"></i>
+            <h3>JavaScript</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress:85%">85%</div>
+            </div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+            <i class="fa-brands fa-php"></i>
+            <h3>PHP</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress:80%">80%</div>
+            </div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="500">
+            <i class="fa-brands fa-laravel"></i>
+            <h3>Laravel</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress:75%">75%</div>
+            </div>
+          </div>
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+            <i class="fa-brands fa-bootstrap"></i>
+            <h3>Bootstrap</h3>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--progress:90%">90%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div data-aos="fade-up" data-aos-duration="1000">
+      <div class="container">
+        <h2 class="section-title">Testimonials</h2>
+        <p class="section-subtitle">What people say about working with me</p>
+        <div class="testimonials">
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fa-solid fa-quote-left"></i>
+            <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="quote">"Bekerja sama dengan Daffi adalah keputusan terbaik. 
+              Ia punya kombinasi antara skill teknis yang solid dengan kreativitas desain yang tinggi. Web app yang ia kembangkan berhasil meningkatkan engagement pelanggan kami secara signifikan."</p>
+            <p class="client">Abqory Firdaus Hisan</p>
+            <p class="position">Friends, Team</p>
+          </div>
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fa-solid fa-quote-left"></i>
+            <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="quote">"Daffi benar-benar memahami kebutuhan bisnis kami. Website yang ia buat tidak hanya terlihat modern dan profesional, tapi juga ringan dan mudah digunakan. 
+              Komunikasinya juga sangat cepat, jadi proses pengerjaan terasa lancar."</p>
+            <p class="client">Dzaky Nazran</p>
+            <p class="position">Friends, Team</p>
+          </div>
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-solid fa-quote-left"></i>
+            <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="quote">"Saya kagum dengan cara Daffi mendengarkan ide kami lalu menerjemahkannya ke dalam desain website yang fungsional. Hasil akhirnya persis seperti yang kami bayangkan. 
+              Daffi juga sangat responsif kalau ada revisi, pokoknya recommended banget."</p>
+            <p class="client">Davin Kurniawan</p>
+            <p class="position">Old Friends</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div data-aos="fade-up" data-aos-duration="1000">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Have a project in mind or want to discuss opportunities? Reach out!</p>
+        <form class="contact-form" id="contactForm">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="text" placeholder="Subject">
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Daffi Nafeeza. All Rights Reserved.</p>
+      <p>
+        <a href="#about">About</a> | 
+        <a href="#testimonials">Testimonials</a> | 
+        <a href="#contact">Contact</a>
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/D4FF1" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/daffi-nafeeza-036601376" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://wa.me/6285657424907" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://instagram.com/daffi_nafeeza" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+
+    // Mobile menu functions
+    function hamburger() {
+      document.querySelector(".dropdown").classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+    
+    function closeMenu() {
+      document.querySelector(".dropdown").classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+      // Skill bar animation
+      const skillBars = document.querySelectorAll(".skill-progress");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.width = entry.target.style.getPropertyValue("--progress");
+          }
+        });
+      }, { threshold: 0.5 });
+
+      skillBars.forEach(bar => observer.observe(bar));
+      
+      // Form submission
+      document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("Thank you for your message! I'll get back to you soon.");
+        this.reset();
+      });
+  </script>
+</body>
+</html>
