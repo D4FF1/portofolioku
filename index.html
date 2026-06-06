@@ -20,11 +20,11 @@
   <style>
     /* ===== CSS VARIABLES & THEME ===== */
     :root {
-      --primary: #6366f1;
-      --primary-light: #818cf8;
-      --primary-dark: #4f46e5;
-      --secondary: #8b5cf6;
-      --accent: #06b6d4;
+      --primary: #0d9488;
+      --primary-light: #14b8a6;
+      --primary-dark: #0f766e;
+      --secondary: #334155;
+      --accent: #f59e0b;
       --success: #10b981;
       --warning: #f59e0b;
       --danger: #ef4444;
@@ -44,28 +44,28 @@
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
       --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      --gradient-hero: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+      --gradient-1: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+      --gradient-2: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      --gradient-3: linear-gradient(135deg, #334155 0%, #475569 100%);
+      --gradient-hero: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(15, 118, 110, 0.08) 100%);
     }
 
     [data-theme="dark"] {
-      --bg-primary: #0f172a;
-      --bg-secondary: #1e293b;
-      --bg-tertiary: #334155;
-      --text-primary: #f8fafc;
+      --bg-primary: #0a0f0d;
+      --bg-secondary: #111816;
+      --bg-tertiary: #1a2420;
+      --text-primary: #f1f5f9;
       --text-secondary: #cbd5e1;
       --text-muted: #64748b;
-      --border-color: #334155;
-      --card-bg: rgba(30, 41, 59, 0.8);
-      --glass-bg: rgba(30, 41, 59, 0.7);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-      --gradient-hero: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+      --border-color: #1e293b;
+      --card-bg: rgba(17, 24, 22, 0.8);
+      --glass-bg: rgba(17, 24, 22, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+      --gradient-hero: linear-gradient(135deg, rgba(13, 148, 136, 0.12) 0%, rgba(15, 118, 110, 0.12) 100%);
     }
 
     /* ===== RESET & BASE ===== */
@@ -323,7 +323,7 @@
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       text-decoration: none;
-      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
       position: relative;
       overflow: hidden;
       transform-style: preserve-3d;
@@ -364,7 +364,7 @@
 
     .btn:hover {
       transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 12px 35px rgba(99, 102, 241, 0.5);
+      box-shadow: 0 12px 35px rgba(13, 148, 136, 0.5);
     }
 
     .btn:active {
@@ -379,14 +379,14 @@
     }
 
     .btn-outline::before {
-      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(13, 148, 136, 0.2), transparent);
     }
 
     .btn-outline:hover {
       background: var(--primary);
       color: white;
       border-color: var(--primary);
-      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+      box-shadow: 0 8px 25px rgba(13, 148, 136, 0.4);
     }
 
     .btn-sm {
@@ -578,7 +578,7 @@
     .hamburger:hover {
       background: var(--primary);
       border-color: var(--primary);
-      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+      box-shadow: 0 8px 25px rgba(13, 148, 136, 0.4);
       transform: scale(1.05);
     }
 
@@ -928,7 +928,7 @@
 
     .stat-card:hover {
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+      box-shadow: 0 20px 40px rgba(13, 148, 136, 0.2);
       border-color: var(--primary);
     }
 
@@ -1081,7 +1081,7 @@
 
     .skill-category:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 20px 40px rgba(13, 148, 136, 0.15);
       border-color: var(--primary);
     }
 
@@ -1193,7 +1193,7 @@
 
     .project-card:hover {
       transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 25px 50px rgba(99, 102, 241, 0.2);
+      box-shadow: 0 25px 50px rgba(13, 148, 136, 0.2);
       border-color: var(--primary);
     }
 
@@ -1403,7 +1403,7 @@
 
     .experience-content:hover {
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 20px 40px rgba(13, 148, 136, 0.15);
       border-color: var(--primary);
     }
 
@@ -1493,7 +1493,7 @@
 
     .achievement-card:hover {
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 20px 40px rgba(13, 148, 136, 0.15);
       border-color: var(--primary);
     }
 
@@ -1609,7 +1609,7 @@
     }
 
     .contact-form:hover {
-      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+      box-shadow: 0 20px 40px rgba(13, 148, 136, 0.1);
     }
 
     .form-group {
@@ -1644,7 +1644,7 @@
       outline: none;
       border-color: var(--primary);
       background: var(--bg-primary);
-      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+      box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.1);
       transform: translateY(-2px);
     }
 
@@ -2180,7 +2180,7 @@
       </div>
       <div class="about-content">
         <div class="about-image" data-aos="fade-right" data-aos-duration="1000">
-          <img src="assets/src/img/1.png" alt="Daffi Nafeeza">
+          <img src="assets/src/img/foto.png" alt="Daffi Nafeeza">
         </div>
         <div class="about-text" data-aos="fade-left" data-aos-duration="1000">
           <p>
