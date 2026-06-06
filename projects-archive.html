@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Archive | Daffi Nafeeza</title>
+  <meta name="description" content="Complete archive of all projects by Daffi Nafeeza - A journey through web development, experiments, and creative coding.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/046af6897e.js" crossorigin="anonymous"></script>
+  
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <style>
+    /* ===== CSS VARIABLES & THEME ===== */
+    :root {
+      --primary: #0d9488;
+      --primary-light: #14b8a6;
+      --primary-dark: #0f766e;
+      --secondary: #334155;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      
+      /* Light Theme */
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --border-color: #e2e8f0;
+      --card-bg: rgba(255, 255, 255, 0.8);
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.3);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --gradient-1: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+      --gradient-2: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      --gradient-3: linear-gradient(135deg, #334155 0%, #475569 100%);
+      --gradient-hero: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(15, 118, 110, 0.08) 100%);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0f0d;
+      --bg-secondary: #111816;
+      --bg-tertiary: #1a2420;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #64748b;
+      --border-color: #1e293b;
+      --card-bg: rgba(17, 24, 22, 0.8);
+      --glass-bg: rgba(17, 24, 22, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+      --gradient-hero: linear-gradient(135deg, rgba(13, 148, 136, 0.12) 0%, rgba(15, 118, 110, 0.12) 100%);
+    }
+
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) var(--bg-secondary);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-dark);
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      width: 90%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .gradient-text {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== GLASSMORPHISM ===== */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+    }
+
+    /* ===== NAVIGATION ===== */
+    .back-nav {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 12px 24px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-md);
+    }
+
+    .back-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateX(-5px);
+      box-shadow: 0 8px 25px rgba(13, 148, 136, 0.4);
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 100px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-hero);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 8px 20px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== STATS SECTION ===== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-1);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 0;
+    }
+
+    .stat-card:hover::before {
+      opacity: 0.1;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(13, 148, 136, 0.2);
+      border-color: var(--primary);
+    }
+
+    .stat-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* ===== SEARCH & FILTER SECTION ===== */
+    .search-filter-section {
+      background: var(--bg-secondary);
+      padding: 80px 0;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .search-box {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 16px 20px 16px 50px;
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 16px;
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.1);
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 24px;
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 100px;
+      color: var(--text-primary);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* ===== PROJECTS GRID ===== */
+    .projects-section {
+      background: var(--bg-primary);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-1);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .project-card:hover::before {
+      opacity: 0.05;
+    }
+
+    .project-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(13, 148, 136, 0.2);
+      border-color: var(--primary);
+    }
+
+    .project-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-image {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: var(--bg-tertiary);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.1);
+    }
+
+    .project-status {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status-completed {
+      background: rgba(16, 185, 129, 0.2);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .status-in-progress {
+      background: rgba(245, 158, 11, 0.2);
+      color: #f59e0b;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .status-experimental {
+      background: rgba(99, 102, 241, 0.2);
+      color: #6366f1;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-category {
+      font-size: 0.8rem;
+      color: var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .project-description {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tech-tag {
+      padding: 4px 12px;
+      background: var(--bg-tertiary);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .project-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .project-actions a {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    .project-actions a:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* ===== TIMELINE SECTION ===== */
+    .timeline-section {
+      background: var(--bg-secondary);
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 100%;
+      background: var(--gradient-1);
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 2rem 0;
+      width: 50%;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      padding-right: 3rem;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      padding-left: 3rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      width: 20px;
+      height: 20px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 4px solid var(--bg-primary);
+      box-shadow: 0 0 0 4px var(--primary);
+    }
+
+    .timeline-item:nth-child(odd)::before {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even)::before {
+      left: -10px;
+    }
+
+    .timeline-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .timeline-year {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .timeline-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .timeline-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: flex-end;
+    }
+
+    .timeline-item:nth-child(even) .timeline-tech {
+      justify-content: flex-start;
+    }
+
+    /* ===== ACHIEVEMENTS SECTION ===== */
+    .achievements-section {
+      background: var(--bg-primary);
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .achievement-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .achievement-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-1);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .achievement-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(13, 148, 136, 0.15);
+    }
+
+    .achievement-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1.5rem;
+      background: var(--gradient-1);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .achievement-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .achievement-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    /* ===== TECHNOLOGY CLOUD ===== */
+    .tech-section {
+      background: var(--bg-secondary);
+    }
+
+    .tech-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .tech-item {
+      padding: 12px 24px;
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 100px;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .tech-item:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(13, 148, 136, 0.3);
+    }
+
+    .tech-item.large {
+      font-size: 1.2rem;
+      padding: 16px 32px;
+    }
+
+    .tech-item.medium {
+      font-size: 1rem;
+      padding: 12px 24px;
+    }
+
+    .tech-item.small {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
+
+    /* ===== PROJECT MODAL ===== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      max-width: 900px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: scale(0.9);
+      transition: transform 0.4s ease;
+    }
+
+    .modal-overlay.active .modal {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      position: relative;
+      padding: 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 2rem;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+    }
+
+    .modal-section {
+      margin-bottom: 2rem;
+    }
+
+    .modal-section h4 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .modal-section p {
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    .modal-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .modal-tech span {
+      padding: 6px 16px;
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-btn {
+      padding: 12px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .modal-btn-primary {
+      background: var(--gradient-1);
+      color: white;
+      border: none;
+    }
+
+    .modal-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(13, 148, 136, 0.4);
+    }
+
+    .modal-btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 2px solid var(--border-color);
+    }
+
+    .modal-btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 3rem !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+      }
+
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+
+      .timeline-item::before {
+        left: 10px !important;
+        right: auto !important;
+      }
+
+      .timeline-tech {
+        justify-content: flex-start !important;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .filter-container {
+        gap: 0.5rem;
+      }
+
+      .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal {
+        width: 95%;
+        max-height: 95vh;
+      }
+
+      .modal-header,
+      .modal-body {
+        padding: 1.5rem;
+      }
+
+      .modal-image {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Back Navigation -->
+  <nav class="back-nav">
+    <a href="index.html" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i>
+      Back to Portfolio
+    </a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <div class="hero-badge">
+          <i class="fa-solid fa-folder-open"></i>
+          Project Archive
+        </div>
+        <h1>My <span class="gradient-text">Project Journey</span></h1>
+        <p class="hero-subtitle">
+          Menampilkan seluruh perjalanan dan karya yang telah saya bangun selama belajar dan mengembangkan kemampuan sebagai developer.
+        </p>
+        
+        <!-- Statistics -->
+        <div class="stats-grid">
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-number" id="totalProjects">0</div>
+            <div class="stat-label">Total Projects</div>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-number" id="totalTech">0</div>
+            <div class="stat-label">Technologies Used</div>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat-number" id="activeProjects">0</div>
+            <div class="stat-label">Active Projects</div>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="stat-number" id="completedProjects">0</div>
+            <div class="stat-label">Completed Projects</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search & Filter Section -->
+  <section class="search-filter-section">
+    <div class="container">
+      <div class="search-container" data-aos="fade-up">
+        <div class="search-box">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search projects...">
+        </div>
+      </div>
+      
+      <div class="filter-container" data-aos="fade-up" data-aos-delay="100">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="portfolio">Portfolio</button>
+        <button class="filter-btn" data-filter="web-app">Web App</button>
+        <button class="filter-btn" data-filter="landing-page">Landing Page</button>
+        <button class="filter-btn" data-filter="ui-design">UI Design</button>
+        <button class="filter-btn" data-filter="school-project">School Project</button>
+        <button class="filter-btn" data-filter="personal-project">Personal Project</button>
+        <button class="filter-btn" data-filter="experimental">Experimental</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid Section -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Projects will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up" style="text-align: center; margin-bottom: 4rem;">
+        <h2>Project <span class="gradient-text">Timeline</span></h2>
+        <p>Perjalanan pengembangan project dari waktu ke waktu</p>
+      </div>
+      <div class="timeline" id="timeline">
+        <!-- Timeline items will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section class="achievements-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up" style="text-align: center; margin-bottom: 4rem;">
+        <h2>Project <span class="gradient-text">Achievements</span></h2>
+        <p>Pencapaian dan highlight dari seluruh project</p>
+      </div>
+      <div class="achievements-grid" id="achievementsGrid">
+        <!-- Achievements will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Cloud Section -->
+  <section class="tech-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up" style="text-align: center; margin-bottom: 4rem;">
+        <h2>Technology <span class="gradient-text">Stack</span></h2>
+        <p>Semua teknologi yang pernah digunakan dalam project</p>
+      </div>
+      <div class="tech-cloud" id="techCloud">
+        <!-- Tech items will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Detail Modal -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal">
+      <div class="modal-header">
+        <button class="modal-close" id="modalClose">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 id="modalTitle">Project Title</h2>
+        <p id="modalCategory" style="color: var(--primary); font-weight: 600;">Category</p>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="Project" class="modal-image" id="modalImage">
+        
+        <div class="modal-section">
+          <h4><i class="fa-solid fa-book-open"></i> Description</h4>
+          <p id="modalDescription">Project description goes here...</p>
+        </div>
+        
+        <div class="modal-section">
+          <h4><i class="fa-solid fa-bullseye"></i> Objective</h4>
+          <p id="modalObjective">Project objective goes here...</p>
+        </div>
+        
+        <div class="modal-section">
+          <h4><i class="fa-solid fa-mountain"></i> Challenges</h4>
+          <p id="modalChallenges">Challenges faced during development...</p>
+        </div>
+        
+        <div class="modal-section">
+          <h4><i class="fa-solid fa-lightbulb"></i> Solutions</h4>
+          <p id="modalSolutions">Solutions implemented...</p>
+        </div>
+        
+        <div class="modal-section">
+          <h4><i class="fa-solid fa-code"></i> Technologies Used</h4>
+          <div class="modal-tech" id="modalTech">
+            <!-- Tech tags will be inserted here -->
+          </div>
+        </div>
+        
+        <div class="modal-section">
+          <h4><i class="fa-solid fa-flag-checkered"></i> Results</h4>
+          <p id="modalResults">Final results and outcomes...</p>
+        </div>
+        
+        <div class="modal-actions" id="modalActions">
+          <!-- Action buttons will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // ===== PROJECT DATA =====
+    // Tambahkan project baru dengan menambahkan objek ke dalam array ini
+    const projectsData = [
+      {
+        id: 1,
+        title: "Portfolio Website",
+        category: "portfolio",
+        description: "Website portfolio modern dengan desain premium dan fitur interaktif lengkap.",
+        fullDescription: "Website portfolio personal yang menampilkan skill, project, dan informasi kontak dengan desain modern dan premium.",
+        objective: "Membuat portfolio yang profesional untuk menampilkan kemampuan dan project yang pernah dikerjakan.",
+        challenges: "Mengimplementasikan desain yang responsif, animasi smooth, dan fitur interaktif yang kompleks.",
+        solutions: "Menggunakan CSS modern, JavaScript untuk interaktivitas, dan framework animasi untuk smooth transitions.",
+        results: "Website portfolio yang lengkap dengan semua fitur yang diinginkan dan performa yang optimal.",
+        tech: ["HTML", "CSS", "JavaScript", "AOS"],
+        status: "completed",
+        date: "2025-01",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
+        demo: "#",
+        repo: "#",
+        featured: true
+      },
+      {
+        id: 2,
+        title: "E-Commerce Dashboard",
+        category: "web-app",
+        description: "Dashboard admin untuk manajemen e-commerce dengan fitur analitik dan reporting.",
+        fullDescription: "Aplikasi dashboard komprehensif untuk mengelola produk, pesanan, pelanggan, dan analitik penjualan.",
+        objective: "Membuat dashboard yang memudahkan pemilik toko online untuk mengelola bisnis mereka.",
+        challenges: "Mengintegrasikan berbagai fitur kompleks seperti chart, tabel data, dan real-time updates.",
+        solutions: "Menggunakan framework modern dan library chart untuk visualisasi data yang efektif.",
+        results: "Dashboard yang powerful dan user-friendly dengan semua fitur yang dibutuhkan.",
+        tech: ["React", "Node.js", "MongoDB", "Chart.js"],
+        status: "in-progress",
+        date: "2024-12",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+        demo: "#",
+        repo: "#",
+        featured: true
+      },
+      {
+        id: 3,
+        title: "Task Management App",
+        category: "web-app",
+        description: "Aplikasi manajemen tugas dengan fitur kolaborasi tim dan progress tracking.",
+        fullDescription: "Platform manajemen tugas yang memungkinkan tim untuk berkolaborasi, melacak progress, dan mengelola deadline.",
+        objective: "Meningkatkan produktivitas tim dengan sistem manajemen tugas yang terorganisir.",
+        challenges: "Mengimplementasikan fitur real-time collaboration dan complex task dependencies.",
+        solutions: "Menggunakan WebSocket untuk real-time updates dan database yang scalable.",
+        results: "Aplikasi yang meningkatkan produktivitas tim dengan fitur kolaborasi yang seamless.",
+        tech: ["Vue.js", "Firebase", "WebSocket"],
+        status: "completed",
+        date: "2024-11",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
+        demo: "#",
+        repo: "#",
+        featured: false
+      },
+      {
+        id: 4,
+        title: "Landing Page Startup",
+        category: "landing-page",
+        description: "Landing page modern untuk startup teknologi dengan animasi dan CTA yang kuat.",
+        fullDescription: "Landing page yang dirancang khusus untuk startup teknologi dengan fokus pada konversi dan brand awareness.",
+        objective: "Membuat landing page yang menarik dan mengkonversi pengunjung menjadi users.",
+        challenges: "Membuat desain yang standout di pasar yang kompetitif dengan CTA yang efektif.",
+        solutions: "Menggunakan desain minimalis, animasi micro-interactions, dan A/B testing untuk optimasi.",
+        results: "Landing page dengan conversion rate yang tinggi dan feedback positif dari users.",
+        tech: ["HTML", "CSS", "JavaScript", "GSAP"],
+        status: "completed",
+        date: "2024-10",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
+        demo: "#",
+        repo: "#",
+        featured: false
+      },
+      {
+        id: 5,
+        title: "UI Design System",
+        category: "ui-design",
+        description: "Sistem desain komprehensif dengan komponen reusable dan documentation.",
+        fullDescription: "Design system yang mencakup komponen UI, guidelines, dan documentation untuk konsistensi desain.",
+        objective: "Membuat sistem desain yang memastikan konsistensi visual di seluruh produk.",
+        challenges: "Mendefinisikan design principles yang jelas dan membuat komponen yang fleksibel.",
+        solutions: "Menggunakan atomic design methodology dan documentation yang detail.",
+        results: "Design system yang digunakan oleh seluruh tim dan meningkatkan efisiensi development.",
+        tech: ["Figma", "CSS", "Storybook"],
+        status: "completed",
+        date: "2024-09",
+        image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800",
+        demo: "#",
+        repo: "#",
+        featured: false
+      },
+      {
+        id: 6,
+        title: "School Library System",
+        category: "school-project",
+        description: "Sistem manajemen perpustakaan sekolah dengan fitur peminjaman dan pengembalian buku.",
+        fullDescription: "Aplikasi manajemen perpustakaan yang memudahkan sekolah dalam mengelola buku dan peminjaman siswa.",
+        objective: "Mendigitalisasi sistem perpustakaan sekolah untuk efisiensi dan akurasi.",
+        challenges: "Mengimplementasikan sistem peminjaman yang kompleks dengan berbagai aturan.",
+        solutions: "Membuat database yang well-structured dan logic peminjaman yang robust.",
+        results: "Sistem yang digunakan oleh sekolah dan meningkatkan efisiensi manajemen perpustakaan.",
+        tech: ["PHP", "MySQL", "Bootstrap", "JavaScript"],
+        status: "completed",
+        date: "2024-08",
+        image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800",
+        demo: "#",
+        repo: "#",
+        featured: false
+      },
+      {
+        id: 7,
+        title: "Personal Blog",
+        category: "personal-project",
+        description: "Blog personal dengan fitur markdown editor dan kategori artikel.",
+        fullDescription: "Platform blogging personal dengan editor markdown yang powerful dan sistem kategori yang fleksibel.",
+        objective: "Membuat platform untuk berbagi pengetahuan dan pengalaman dalam format yang menarik.",
+        challenges: "Mengimplementasikan markdown editor yang user-friendly dan sistem kategori yang scalable.",
+        solutions: "Menggunakan library markdown dan database yang well-structured.",
+        results: "Blog yang aktif dengan konten yang berkualitas dan feedback positif dari readers.",
+        tech: ["Next.js", "MDX", "Tailwind", "Vercel"],
+        status: "in-progress",
+        date: "2024-07",
+        image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800",
+        demo: "#",
+        repo: "#",
+        featured: false
+      },
+      {
+        id: 8,
+        title: "AI Chat Experiment",
+        category: "experimental",
+        description: "Eksperimen integrasi AI chat dengan custom training dan personality.",
+        fullDescription: "Project eksperimental untuk mengexplore kemungkinan integrasi AI dengan personality custom.",
+        objective: "Mempelajari dan mengexplore teknologi AI chat dengan pendekatan yang unik.",
+        challenges: "Mengintegrasikan AI API dan membuat personality yang natural dan engaging.",
+        solutions: "Menggunakan OpenAI API dengan custom prompt engineering dan fine-tuning.",
+        results: "Prototype chat AI dengan personality yang unik dan pembelajaran berharga tentang AI.",
+        tech: ["Python", "OpenAI API", "JavaScript", "React"],
+        status: "experimental",
+        date: "2024-06",
+        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800",
+        demo: "#",
+        repo: "#",
+        featured: false
+      }
+    ];
+
+    // ===== TECHNOLOGY DATA =====
+    const technologies = [
+      { name: "HTML", size: "large" },
+      { name: "CSS", size: "large" },
+      { name: "JavaScript", size: "large" },
+      { name: "React", size: "large" },
+      { name: "Vue.js", size: "medium" },
+      { name: "Node.js", size: "large" },
+      { name: "PHP", size: "medium" },
+      { name: "Python", size: "medium" },
+      { name: "MySQL", size: "medium" },
+      { name: "MongoDB", size: "medium" },
+      { name: "Tailwind", size: "large" },
+      { name: "Bootstrap", size: "medium" },
+      { name: "Laravel", size: "medium" },
+      { name: "Next.js", size: "medium" },
+      { name: "Firebase", size: "medium" },
+      { name: "GSAP", size: "small" },
+      { name: "AOS", size: "small" },
+      { name: "Chart.js", size: "small" },
+      { name: "Figma", size: "medium" },
+      { name: "Storybook", size: "small" },
+      { name: "WebSocket", size: "small" },
+      { name: "MDX", size: "small" },
+      { name: "Vercel", size: "small" },
+      { name: "OpenAI API", size: "small" }
+    ];
+
+    // ===== INITIALIZATION =====
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+      });
+
+      initStatistics();
+      renderProjects();
+      renderTimeline();
+      renderAchievements();
+      renderTechCloud();
+      initFilter();
+      initSearch();
+      initModal();
+    });
+
+    // ===== STATISTICS =====
+    function initStatistics() {
+      const totalProjects = projectsData.length;
+      const allTech = new Set();
+      projectsData.forEach(project => {
+        project.tech.forEach(t => allTech.add(t));
+      });
+      const totalTech = allTech.size;
+      const activeProjects = projectsData.filter(p => p.status === 'in-progress').length;
+      const completedProjects = projectsData.filter(p => p.status === 'completed').length;
+
+      animateNumber('totalProjects', totalProjects);
+      animateNumber('totalTech', totalTech);
+      animateNumber('activeProjects', activeProjects);
+      animateNumber('completedProjects', completedProjects);
+    }
+
+    function animateNumber(elementId, target) {
+      const element = document.getElementById(elementId);
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target;
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current);
+        }
+      }, 30);
+    }
+
+    // ===== RENDER PROJECTS =====
+    function renderProjects(filter = 'all', search = '') {
+      const grid = document.getElementById('projectsGrid');
+      let filteredProjects = projectsData;
+
+      if (filter !== 'all') {
+        filteredProjects = filteredProjects.filter(p => p.category === filter);
+      }
+
+      if (search) {
+        const searchLower = search.toLowerCase();
+        filteredProjects = filteredProjects.filter(p => 
+          p.title.toLowerCase().includes(searchLower) ||
+          p.description.toLowerCase().includes(searchLower) ||
+          p.tech.some(t => t.toLowerCase().includes(searchLower))
+        );
+      }
+
+      grid.innerHTML = filteredProjects.map(project => `
+        <div class="project-card" data-aos="fade-up" onclick="openModal(${project.id})">
+          <div class="project-image">
+            <img src="${project.image}" alt="${project.title}" onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800'">
+            <span class="project-status status-${project.status}">${project.status}</span>
+          </div>
+          <div class="project-content">
+            <div class="project-category">${project.category}</div>
+            <h3 class="project-title">${project.title}</h3>
+            <p class="project-description">${project.description}</p>
+            <div class="project-tech">
+              ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+            </div>
+            <div class="project-footer">
+              <span class="project-date">${project.date}</span>
+              <div class="project-actions">
+                ${project.demo ? `<a href="${project.demo}" target="_blank" onclick="event.stopPropagation()"><i class="fa-solid fa-external-link-alt"></i></a>` : ''}
+                ${project.repo ? `<a href="${project.repo}" target="_blank" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>` : ''}
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Reinitialize AOS for new elements
+      setTimeout(() => AOS.refresh(), 100);
+    }
+
+    // ===== RENDER TIMELINE =====
+    function renderTimeline() {
+      const timeline = document.getElementById('timeline');
+      const sortedProjects = [...projectsData].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      timeline.innerHTML = sortedProjects.map((project, index) => `
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="${index * 100}">
+          <div class="timeline-content">
+            <div class="timeline-year">${project.date}</div>
+            <h3 class="timeline-title">${project.title}</h3>
+            <p class="timeline-desc">${project.description}</p>
+            <div class="timeline-tech">
+              ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ===== RENDER ACHIEVEMENTS =====
+    function renderAchievements() {
+      const grid = document.getElementById('achievementsGrid');
+      const achievements = [
+        {
+          icon: 'fa-trophy',
+          title: 'Most Successful',
+          desc: projectsData.find(p => p.featured)?.title || 'Portfolio Website'
+        },
+        {
+          icon: 'fa-heart',
+          title: 'Favorite Project',
+          desc: 'E-Commerce Dashboard'
+        },
+        {
+          icon: 'fa-layer-group',
+          title: 'Most Technologies',
+          desc: projectsData.reduce((max, p) => p.tech.length > max.tech.length ? p : max, projectsData[0]).title
+        },
+        {
+          icon: 'fa-clock',
+          title: 'Latest Project',
+          desc: projectsData[0]?.title || 'Portfolio Website'
+        }
+      ];
+
+      grid.innerHTML = achievements.map((achievement, index) => `
+        <div class="achievement-card" data-aos="fade-up" data-aos-delay="${index * 100}">
+          <div class="achievement-icon">
+            <i class="fa-solid ${achievement.icon}"></i>
+          </div>
+          <h3 class="achievement-title">${achievement.title}</h3>
+          <p class="achievement-desc">${achievement.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    // ===== RENDER TECH CLOUD =====
+    function renderTechCloud() {
+      const cloud = document.getElementById('techCloud');
+      cloud.innerHTML = technologies.map((tech, index) => `
+        <span class="tech-item ${tech.size}" data-aos="zoom-in" data-aos-delay="${index * 50}">${tech.name}</span>
+      `).join('');
+    }
+
+    // ===== FILTER =====
+    function initFilter() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+          const searchValue = document.getElementById('searchInput').value;
+          renderProjects(filter, searchValue);
+        });
+      });
+    }
+
+    // ===== SEARCH =====
+    function initSearch() {
+      const searchInput = document.getElementById('searchInput');
+      searchInput.addEventListener('input', (e) => {
+        const searchValue = e.target.value;
+        const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+        renderProjects(activeFilter, searchValue);
+      });
+    }
+
+    // ===== MODAL =====
+    function initModal() {
+      const modal = document.getElementById('projectModal');
+      const closeBtn = document.getElementById('modalClose');
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+    }
+
+    function openModal(projectId) {
+      const project = projectsData.find(p => p.id === projectId);
+      if (!project) return;
+
+      document.getElementById('modalTitle').textContent = project.title;
+      document.getElementById('modalCategory').textContent = project.category;
+      document.getElementById('modalImage').src = project.image;
+      document.getElementById('modalDescription').textContent = project.fullDescription;
+      document.getElementById('modalObjective').textContent = project.objective;
+      document.getElementById('modalChallenges').textContent = project.challenges;
+      document.getElementById('modalSolutions').textContent = project.solutions;
+      document.getElementById('modalResults').textContent = project.results;
+      document.getElementById('modalTech').innerHTML = project.tech.map(t => `<span>${t}</span>`).join('');
+
+      const actions = document.getElementById('modalActions');
+      actions.innerHTML = '';
+      if (project.demo) {
+        actions.innerHTML += `<a href="${project.demo}" target="_blank" class="modal-btn modal-btn-primary"><i class="fa-solid fa-external-link-alt"></i> Live Demo</a>`;
+      }
+      if (project.repo) {
+        actions.innerHTML += `<a href="${project.repo}" target="_blank" class="modal-btn modal-btn-secondary"><i class="fa-brands fa-github"></i> Source Code</a>`;
+      }
+
+      document.getElementById('projectModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('projectModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  </script>
+</body>
+</html>
